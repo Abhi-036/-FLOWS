@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>टास्कFLOWS — Your Daily Focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- AUTH SCREEN -->
+  <section id="auth-screen" class="auth-screen">
+    <div class="auth-card glass">
+      <div class="brand">
+        <div class="brand-logo">✦</div>
+        <h1>टास्कFLOWS</h1>
+        <p class="brand-tag">Your daily focus, beautifully organized.</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Sign in</button>
+        <button class="tab" data-tab="signup">Create account</button>
+      </div>
+
+      <form id="login-form" class="auth-form active">
+        <label>Username
+          <input type="text" id="login-username" autocomplete="username" required />
+        </label>
+        <label>Password
+          <input type="password" id="login-password" autocomplete="current-password" required />
+        </label>
+        <button type="submit" class="btn-primary">Sign in →</button>
+        <p class="form-msg" id="login-msg"></p>
+      </form>
+
+      <form id="signup-form" class="auth-form">
+        <label>Username
+          <input type="text" id="signup-username" autocomplete="username" required minlength="2" />
+        </label>
+        <label>Password
+          <input type="password" id="signup-password" autocomplete="new-password" required minlength="4" />
+        </label>
+        <button type="submit" class="btn-primary">Create account →</button>
+        <p class="form-msg" id="signup-msg"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- APP SCREEN -->
+  <section id="app-screen" class="app-screen hidden">
+    <header class="app-header glass">
+      <div class="header-left">
+        <div class="brand-logo small">✦</div>
+        <div>
+          <h2>Hello, <span id="user-name">there</span></h2>
+          <p class="date" id="today-date"></p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn" id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+          <span class="theme-icon">🌙</span>
+        </button>
+        <button class="btn-ghost" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <section class="stats">
+        <div class="stat glass">
+          <span class="stat-num" id="stat-total">0</span>
+          <span class="stat-label">Total</span>
+        </div>
+        <div class="stat glass">
+          <span class="stat-num" id="stat-active">0</span>
+          <span class="stat-label">Active</span>
+        </div>
+        <div class="stat glass">
+          <span class="stat-num" id="stat-done">0</span>
+          <span class="stat-label">Completed</span>
+        </div>
+      </section>
+
+      <form id="task-form" class="task-form glass">
+        <input type="text" id="task-input" placeholder="What needs to be done today?" maxlength="200" required />
+        <button type="submit" class="btn-primary">+ Add</button>
+      </form>
+
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="active">Active</button>
+        <button class="filter" data-filter="completed">Completed</button>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-illus">✺</div>
+        <h3>All clear here</h3>
+        <p>Add your first task above and start your flow.</p>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>Crafted with care · टास्कFLOWS</p>
+    </footer>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
